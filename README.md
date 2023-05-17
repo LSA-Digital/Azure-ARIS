@@ -91,9 +91,9 @@ This will enable mixed mode authentication on the SQL Server, enable the SA user
 -  Select Start Mode: Start Automatically
 
 8. SSH into the ARISvm (See script 10b-Connect to App Linux VM.ps1)    
-Run command: **acc10.sh -h localhost -pwd g3h31m -u Clous ** 
+Run command: **acc10.sh -h localhost -pwd g3h31m -u Clous**   
 At the prompt: ACC+ localhost> **list**   
-All services should be STARTED   
+All services should be **STARTED**   
 
 9. Open up the web browser on the Setup VM and connect to http://ARISapp-vm:1080   
 If it doesn't connect, you may need to issue a reboot on the ARISapp-vm (then wait 15 min after reboot for services to be STARTED)
