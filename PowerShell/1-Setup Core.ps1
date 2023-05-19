@@ -135,7 +135,7 @@ $nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 3389 `
     -Access "Allow" 
     
-# Create an inbound network security group rule for port 1080
+# Create an inbound network security group rule for port 80
 $nsgRuleHTTP = New-AzNetworkSecurityRuleConfig `
     -Name "ARIShttp"  `
     -Protocol "Tcp" `
@@ -144,10 +144,10 @@ $nsgRuleHTTP = New-AzNetworkSecurityRuleConfig `
     -SourceAddressPrefix * `
     -SourcePortRange * `
     -DestinationAddressPrefix * `
-    -DestinationPortRange 1080 `
+    -DestinationPortRange 80 `
     -Access "Allow"     
     
-# Create an inbound network security group rule for port 1443
+# Create an inbound network security group rule for port 443
 $nsgRuleHTTPS = New-AzNetworkSecurityRuleConfig `
     -Name "ARIShttpS"  `
     -Protocol "Tcp" `
@@ -156,7 +156,7 @@ $nsgRuleHTTPS = New-AzNetworkSecurityRuleConfig `
     -SourceAddressPrefix * `
     -SourcePortRange * `
     -DestinationAddressPrefix * `
-    -DestinationPortRange 1443 `
+    -DestinationPortRange 443 `
     -Access "Allow"     
     
 <# # Create an inbound network security group rule for port 1443

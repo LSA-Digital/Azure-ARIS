@@ -95,7 +95,7 @@ Run command: **acc10.sh -h localhost -pwd g3h31m -u Clous**
 At the prompt: ACC+ localhost> **list**   
 All services should be **STARTED**   
 
-9. Open up the web browser on the Setup VM and connect to http://ARISapp-vm:1080   
+9. Open up the web browser on the Setup VM and connect to http://ARISapp-vm:1080 or https://ARISapp-vm:1443   
 If it doesn't connect, you may need to issue a reboot on the ARISapp-vm (then wait 15 min after reboot for services to be STARTED)
 
 **Additional Best Practices**
