@@ -1,3 +1,6 @@
+## Connect to Azure
+Connect-AzAccount -Environment AzureUSGovernment 
+
 ## General
 $ResourceGroupName = "ARISa"
 
