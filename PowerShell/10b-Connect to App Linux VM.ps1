@@ -1,5 +1,8 @@
-## Connect to Azure
-Connect-AzAccount -Environment AzureUSGovernment 
+## Check if already connected to Azure
+$CurrentContext = Get-AzContext
+if (-not $CurrentContext -or $CurrentContext.Environment.Name -ne "AzureUSGovernment") {
+    Connect-AzAccount -Environment AzureUSGovernment
+}
 
 ## General
 $ResourceGroupName = "ARISa"
@@ -16,8 +19,12 @@ $VMUser = "arismaster"
 $NICName = "$VMName-ip"
 $AppIP = (Get-AzPublicIpAddress -Name $NICName -ResourceGroupName $ResourceGroupName).IpAddress
 
-$KeyFile = New-TemporaryFile
+$KeyFile = "ARISapp-vm.key"
 $secret = Get-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName
-$secret.SecretValue | ConvertFrom-SecureString -AsPlainText | Out-File -FilePath $KeyFile.FullName 
+$secret.SecretValue | ConvertFrom-SecureString -AsPlainText | Out-File -FilePath $KeyFile 
 
-ssh -i $KeyFile.FullName $VMUser@$AppIP
+# Set file permissions to 600
+chmod 600 $KeyFile
+
+#Connect Finally
+ssh -i $KeyFile $VMUser@$AppIP
